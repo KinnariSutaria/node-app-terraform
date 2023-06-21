@@ -1,4 +1,6 @@
 fileignoreconfig:
 - filename: package-lock.json
   checksum: fafe48cdc2060f627cfd5f9944ea672010be22fb47083e4af0f96e1fc33d3bcd
+- filename: terraform/API-Gateway/api-gateway.tf
+  checksum: 1e335df302550c9e6e48a11162e70d7e3421ccbf5bf92f62cc3561323bc6db2f
 version: ""
