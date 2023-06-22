@@ -8,6 +8,7 @@ resource "aws_lambda_function" "create_short_url" {
   handler       = "index.handler"
   filename      = "../createShortURL.js.zip"
   role = aws_iam_role.lambda_exec.arn
+  layers = [aws_lambda_layer_version.node_layer.arn]
 }
 
 resource "aws_lambda_function" "get_long_url" {
@@ -25,10 +26,10 @@ resource "aws_lambda_function" "get_long_url" {
 
 
 resource "aws_lambda_layer_version" "node_layer" {
-  filename   = "my_layer.zip"
+  filename   = "../lambdalayer.zip"
   layer_name = "node_layer"
   compatible_runtimes = ["nodejs14.x"]
-  source_code_hash = filebase64sha256("my_layer.zip")
+
 }
 
 # IAM role which dictates what other AWS services the Lambda function
