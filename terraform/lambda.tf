@@ -20,6 +20,7 @@ resource "aws_lambda_function" "get_long_url" {
   handler       = "index.handler"
   filename      = "../getLongURL.js.zip"
   role = aws_iam_role.lambda_exec.arn
+  layers = [aws_lambda_layer_version.node_layer.arn]
 }
 
 
